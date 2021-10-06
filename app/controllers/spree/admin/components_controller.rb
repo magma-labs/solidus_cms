@@ -7,6 +7,7 @@ module Spree
       # rubocop:disable Rails/LexicallyScopedActionFilter
       before_action :find_sub_component, only: [:edit]
       # rubocop:enable Rails/LexicallyScopedActionFilter
+      helper "components"
 
       def update
         @object = find_sub_component if params.key?(:component_id) && params.key?(:id)
