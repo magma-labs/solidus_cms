@@ -1,0 +1,18 @@
+- @page.components_pages.active.top_level.each do |component|
+  %section.pt-5{ id: "section-#{component.id}" }
+    - begin
+      = render partial: "magma/cms/pages/templates/#{component.presenter.frontend_template}",
+          locals: { components_page: component }
+    - rescue ActionView::Template::Error => e
+      - Rails.logger.error(e)
+      - if can?(:manage, Cms::Component, spree_current_user)
+        .container
+          %h4= t('custom_pages.messages.something_went_wrong')
+          = link_to(t('custom_pages.actions.edit_component'),
+              main_app.edit_admin_custom_page_component_path(@page, component))
+
+- if @page.metadata.background_color.present?
+  :sass
+    .gradient-background
+      background-color: #{@page.metadata.background_color}
+      background-image: none

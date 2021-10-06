@@ -1,0 +1,56 @@
+es:
+  custom_pages:
+    actions:
+      title: Acciones
+      edit: Editar
+      back: Regresar
+      customize: Personalizar
+      delete: Borrar
+      move_up: Mover arriba
+      edit_component: Editar éste componente para verificar configuraciones
+    components:
+      title: Componentes
+      banner:
+        image_1: Imágen de fondo
+        image_2: Imagen para CTA
+      add_new_section: Nueva sección
+      name: Nombre
+      component_type: Tipo de Componente
+      empty: No hay información
+      add_new: Agregar nuevo
+      full_width: Ancho completo
+      status: Activo
+      active:
+        true: Si
+        false: No
+      height:
+        label: Altura
+        help: Altura de la sección, dejar vacio para auto
+    sections: Sección
+    new_section: Nueva Sección
+    index: Pages Builder
+    preview: Preview
+    component_type: Tipo de Componente
+    path: Path
+    new: Nueva Página
+    launch: Publicar
+    take_it_down: Remover publicación
+    is_it_live: Estado
+    status:
+      live: Publicada
+      draft: Plantilla
+    background_color_help: 'Formato: #ffffff, dejar vacio para página transparente'
+
+    pages:
+      slug_error: Slug especificado no cumple con el formato adecuado, debe ser sin espacios, minúsculas, palabras separadas con guiones e iniciar con /
+      help:
+        name: Nombre Interno
+        path: 'Valor que se mostrará como parte de la dirección URL, se recomienda de formato: /nombre-de-pagina'
+    messages:
+      are_you_sure: Confirmar la acción
+      leave_empty: Dejar en blanco para no mostrar título
+  spree:
+    admin:
+      tab:
+        pages_builder: Pages Builder
+        something_went_wrong: Algo salio mal intentando desplegar este componente, puede ser debido a falta de configuraciones

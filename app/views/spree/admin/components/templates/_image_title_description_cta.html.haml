@@ -1,0 +1,12 @@
+- component_form.object.assets.first_or_initialize
+= component_form.fields_for :assets do |assets_form|
+  = image_tag assets_form.object.attachment.url(:square) if assets_form.object.persisted?
+  = assets_form.file_field :attachment
+= f.text_field :title, required: true
+= render 'shared/color_field', { f: f, field_name: :title_color }
+= f.text_area :content, requried: true
+= render 'shared/color_field', { f: f, field_name: :content_color }
+= f.select :content_alignment, text_alignments, required: true
+= f.text_field :cta
+= f.text_field :cta_url
+= f.select :button_color, available_button_colors

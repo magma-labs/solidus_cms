@@ -1,0 +1,33 @@
+-# haml-lint:disable InlineStyles
+%div{ class: components_page.full_width? ? 'row' : 'container' }
+  .carousel.slide.w-100{ data: { ride: 'carousel' },
+      id: "hero-slide-#{components_page.id}",
+      style: "height: #{components_page.metadata.height}px;" }
+    %ol.carousel-indicators
+      - components_page.children.each_with_index do |_slide, index|
+        %li{ class: index.zero? ? 'active' : '',
+            data: { target: "#hero-slide-#{components_page.id}", 'slide-to': index } }
+    .carousel-inner
+      - components_page.children.active.each_with_index do |slide, index|
+        .carousel-item{ class: index.zero? ? 'active' : '' }
+          - begin
+            = render partial: "magma/cms/pages/templates/#{slide.frontend_template}",
+                locals: { components_page: slide }
+          - rescue ActionView::Template::Error => e
+            - Rails.logger.error(e)
+            - if can?(:manage, Cms::ComponentsPage, spree_current_user)
+              .container
+                %h4= t('custom_pages.messages.something_went_wrong')
+                = link_to t('custom_pages.actions.edit_component'),
+                    main_app.edit_admin_custom_page_component_component_path(components_page.page,
+                                                                            components_page, slide)
+
+    = link_to "#hero-slide-#{components_page.id}", role: 'buton',
+        data: { slide: 'prev' }, class: 'carousel-control-prev' do
+      %span.carousel-control-prev-icon{ aria: { hidden: true } }
+      %span.sr-only= t('views.pagination.previous')
+    = link_to "#hero-slide-#{components_page.id}", role: 'buton',
+        data: { slide: 'next' }, class: 'carousel-control-next' do
+      %span.carousel-control-next-icon{ aria: { hidden: true } }
+      %span.sr-only= t('views.pagination.next')
+-# haml-lint:enable InlineStyles

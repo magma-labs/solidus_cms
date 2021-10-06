@@ -6,19 +6,9 @@ module SolidusCms
       class_option :auto_run_migrations, type: :boolean, default: false
       source_root File.expand_path('templates', __dir__)
 
-      def copy_initializer
-        template 'initializer.rb', 'config/initializers/solidus_cms.rb'
-      end
-
-      def add_javascripts
-        append_file 'vendor/assets/javascripts/spree/frontend/all.js', "//= require spree/frontend/solidus_cms\n"
-        append_file 'vendor/assets/javascripts/spree/backend/all.js', "//= require spree/backend/solidus_cms\n"
-      end
-
-      def add_stylesheets
-        inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', " *= require spree/frontend/solidus_cms\n", before: %r{\*/}, verbose: true # rubocop:disable Layout/LineLength
-        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', " *= require spree/backend/solidus_cms\n", before: %r{\*/}, verbose: true # rubocop:disable Layout/LineLength
-      end
+      # def copy_initializer
+      #   template 'initializer.rb', 'config/initializers/solidus_cms.rb'
+      # end
 
       def add_migrations
         run 'bin/rails railties:install:migrations FROM=solidus_cms'

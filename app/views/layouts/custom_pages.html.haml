@@ -1,0 +1,48 @@
+-# frozen_string_literal: true
+
+!!!
+%html{ lang: I18n.locale }
+  %head{ 'data-hook': 'inside_head' }
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+    %title= seo_title
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+    %meta{ content: 'width=device-width, initial-scale=1.0, maximum-scale=3', name: 'viewport' }
+    %meta{ content: facebook_id, property: 'fb:app_id' }
+    %meta{ name: 'twitter:card', content: 'summary' }
+    = canonical_tag(request.domain)
+    = favicon_link_tag favicon_url
+    = csrf_meta_tags
+    = csp_meta_tag
+    - if current_store.custom_branding?
+      = stylesheet_link_tag main_app.custom_branding_path, 'data-turbolinks-track': 'reload'
+    - else
+      = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    = yield :head
+    = yield :social_graph
+    = render 'magma/shared/analytics_trackers'
+  %body{ 'data-hoook': 'body' }
+    - if current_store.facebook_link.present?
+      #fb-root
+      %script{ async: '', crossorigin: 'anonymous', defer: 'defer',
+          src: 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v6.0&autoLogAppEvents=1' }
+    - if header_ribbon_message
+      -# rubocop:disable Rails/OutputSafety
+      .top-ribbon= header_ribbon_message.html_safe
+      -# rubocop:enable Rails/OutputSafety
+    .header-section#main-header
+      = render partial: 'shared/header'
+    = render 'shared/cart_sidebar'
+    .gradient-background
+      .flash-messages
+        -# rubocop:disable Rails/OutputSafety
+        = magma_flash_messages(except: %w[coupon_error order_completed notice]).html_safe
+        -# rubocop:enable Rails/OutputSafety
+      = yield
+    .footer
+      = render partial: 'shared/footer'
+  %script{ type: 'application/ld+json' }
+    = sanitize LdJsonOrganizationPresenter.new(current_store, self).jsonld_data
+  %script{ type: 'application/ld+json' }
+    = sanitize LdJsonWebsitePresenter.new(current_store, self).jsonld_data

@@ -1,0 +1,9 @@
+%label= t('custom_pages.component_type')
+.container
+  .row.btn-group.btn-group-toggle.flex-wrap{ data: { toggle: 'buttons' } }
+    - components.each_with_index do |component, index|
+      = f.form_group :component_id,
+          class: "col-12 col-md-6 border border-white btn btn-light #{index.zero? ? 'active' : ''}" do
+        = f.radio_button :component_id, component.id,
+            label: component.name.titleize, checked: index.zero?
+        = image_tag("cms/#{component.name}.png", class: 'img-fluid p-4')

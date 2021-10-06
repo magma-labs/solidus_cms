@@ -1,5 +1,52 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: Hello world
+  custom_pages:
+    actions:
+      title: Actions
+      edit: Edit
+      back: Back
+      customize: Customize
+      delete: Destroy
+      move_up: Move Up
+      edit_component: Edit this component to review settings
+    components:
+      title: Components
+      banner:
+        image_1: Background Image
+        image_2: CTA Image
+      add_new_section: New Section
+      name: Name
+      component_type: Component Type
+      empty: No components yet
+      add_new: Add New
+      full_width: Full Width
+      status: Active
+      active:
+        true: Yes
+        false: No
+      height:
+        label: Height
+        help: Section height, empty for auto
+    sections: Section
+    new_section: New Section
+    index: Pages Builder
+    preview: Preview
+    component_type: Component Type
+    path: Path
+    new: New Page
+    launch: Publish live
+    take_it_down: Unpublish
+    is_it_live: Live?
+    status:
+      live: Live
+      draft: Draft
+    background_color_help: 'Format: #ffffff, leave empty for transparent page'
+
+    pages:
+      slug_error: Slug is in the wrong format, make sure to be single word split wiht dashes and no spaces and starts with /
+      help:
+        name: Internal Name
+        path: 'How url will look like, it is recommended to split words with dashes: /name-of-page'
+    messages:
+      are_you_sure: Are you sure?
+      leave_empty: Leave empty for no title
+      something_went_wrong: Something went wrong rendering this component, must be missing some settings

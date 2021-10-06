@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rake'
+
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
@@ -27,5 +29,9 @@ RSpec.configure do |config|
 
   if Spree.solidus_gem_version < Gem::Version.new('2.11')
     config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :system
+  end
+
+  config.before(:suite) do
+    Rake::Task['solidus_cms:sync_components'].invoke
   end
 end
