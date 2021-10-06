@@ -2,16 +2,16 @@
 
 - content_for :page_actions do
   %li= link_to t('custom_pages.actions.back'),
-      main_app.admin_custom_page_path(@page),
+      admin_custom_page_path(@page),
       class: 'btn btn-primary'
 
-= admin_breadcrumb link_to t('custom_pages.index'), main_app.admin_custom_pages_path
-= admin_breadcrumb link_to @page.name, main_app.admin_custom_pages_path(@page)
+= admin_breadcrumb link_to t('custom_pages.index'), admin_custom_pages_path
+= admin_breadcrumb link_to @page.name, admin_custom_pages_path(@page)
 
 %h2= @page.name
 %h3= @page.path
 
 %hr
 
-= bootstrap_form_for @page, url: main_app.admin_custom_page_path(@page), as: :page do |form|
+= bootstrap_form_for @page, url: admin_custom_page_path(@page), as: :page do |form|
   = render partial: 'form', locals: { f: form }

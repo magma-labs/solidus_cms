@@ -1,4 +1,4 @@
-= admin_breadcrumb link_to t('custom_pages.index'), main_app.admin_custom_pages_path
+= admin_breadcrumb link_to t('custom_pages.index'), admin_custom_pages_path
 = admin_breadcrumb t('custom_pages.new')
-= bootstrap_form_for @page, as: :page, method: :post, url: main_app.admin_custom_pages_path do |f|
+= bootstrap_form_for @page, as: :page, method: :post, url: admin_custom_pages_path do |f|
   = render partial: 'form', locals: { f: f }

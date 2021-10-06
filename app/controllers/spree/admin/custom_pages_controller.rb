@@ -27,7 +27,7 @@ module Spree
       end
 
       def location_after_save
-        request.headers['Referer'].presence || main_app.admin_custom_page_path(@object)
+        request.headers['Referer'].presence || admin_custom_page_path(@object)
       end
 
       def track_discard_author

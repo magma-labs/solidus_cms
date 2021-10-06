@@ -50,3 +50,8 @@ en:
       are_you_sure: Are you sure?
       leave_empty: Leave empty for no title
       something_went_wrong: Something went wrong rendering this component, must be missing some settings
+  spree:
+    admin:
+      tab:
+        pages_builder: Pages Builder
+        something_went_wrong: Algo salio mal intentando desplegar este componente, puede ser debido a falta de configuraciones

@@ -3,22 +3,22 @@
 - content_for :page_actions do
   - if @page.active
     %li= link_to t('custom_pages.take_it_down'),
-        main_app.admin_custom_page_path(@page, page: { active: false }), method: :put,
+        admin_custom_page_path(@page, page: { active: false }), method: :put,
         class: 'btn btn-primary'
   - else
     %li= link_to t('custom_pages.launch'),
-        main_app.admin_custom_page_path(@page, page: { active: true }), method: :put,
+        admin_custom_page_path(@page, page: { active: true }), method: :put,
         class: 'btn btn-primary'
 
   %li= link_to t('custom_pages.preview'),
-      main_app.preview_page_path(path: @page.path), target: '_blank', rel: 'noopener',
+      preview_page_path(path: @page.path), target: '_blank', rel: 'noopener',
       class: 'btn btn-primary'
 
   %li= link_to t('custom_pages.actions.edit'),
-      main_app.edit_admin_custom_page_path(@page),
+      edit_admin_custom_page_path(@page),
       class: 'btn btn-primary'
 
-= admin_breadcrumb link_to t('custom_pages.index'), main_app.admin_custom_pages_path
+= admin_breadcrumb link_to t('custom_pages.index'), admin_custom_pages_path
 = admin_breadcrumb @page.name
 
 %h3= @page.path
@@ -40,17 +40,17 @@
         %td= t("custom_pages.components.active.#{component.active}")
         %td
           = link_to t('custom_pages.actions.customize'),
-              main_app.admin_custom_page_component_path(@page, component)
+              admin_custom_page_component_path(@page, component)
           |
           = link_to t('custom_pages.actions.edit'),
-                main_app.edit_admin_custom_page_component_path(@page, component)
+                edit_admin_custom_page_component_path(@page, component)
           |
           = link_to t('custom_pages.actions.delete'),
-                main_app.admin_custom_page_component_path(@page, component), method: :delete,
+                admin_custom_page_component_path(@page, component), method: :delete,
                 data: { confirm: t('custom_pages.messages.are_you_sure') }
           |
           = link_to_if component.position.to_i > 1, t('custom_pages.actions.move_up'),
-                main_app.move_to_admin_custom_page_component_path(@page, component,
+                move_to_admin_custom_page_component_path(@page, component,
                     position: component.position - 1),
                 method: :put
       - if component.children.size.positive?
@@ -62,9 +62,9 @@
             %td= t("custom_pages.components.active.#{component_child.active}")
             %td
               = link_to t('custom_pages.actions.customize'),
-                  main_app.edit_admin_custom_page_component_component_path(@page,
+                  edit_admin_custom_page_component_component_path(@page,
                       component, component_child)
     %tr
       %td{ colspan: 4 }
         = link_to t('custom_pages.components.add_new_section'),
-            main_app.new_admin_custom_page_component_path(@page)
+            new_admin_custom_page_component_path(@page)

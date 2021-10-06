@@ -67,14 +67,14 @@ module Spree
 
       def location_after_save
         if @object.parent
-          main_app.edit_admin_custom_page_component_component_path(@page, @object.parent, @object)
+          edit_admin_custom_page_component_component_path(@page, @object.parent, @object)
         else
-          main_app.admin_custom_page_component_path(@page, @object)
+          admin_custom_page_component_path(@page, @object)
         end
       end
 
       def location_after_destroy
-        main_app.admin_custom_page_path(@page)
+        admin_custom_page_path(@page)
       end
     end
   end
