@@ -23,8 +23,6 @@ module SolidusCms
       end
     end
 
-    config.autoload_paths << File.expand_path("../tasks", __FILE__)
-
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
