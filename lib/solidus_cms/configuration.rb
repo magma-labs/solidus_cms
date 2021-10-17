@@ -2,9 +2,7 @@
 
 module SolidusCms
   class Configuration
-    # Define here the settings for this extension, e.g.:
-    #
-    # attr_accessor :my_setting
+    attr_accessor :layout
   end
 
   class << self

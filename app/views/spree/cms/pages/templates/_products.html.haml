@@ -5,6 +5,6 @@
   .pl-3
     = link_to components_page.metadata.cta, components_page.metadata.cta_url
 .row.w-100
-  = render partial: "magma/shared/#{components_page.presenter.product_template}",
+  = render partial: "spree/shared/#{components_page.presenter.product_template}",
       collection: components_page.presenter.products(self),
       as: :product

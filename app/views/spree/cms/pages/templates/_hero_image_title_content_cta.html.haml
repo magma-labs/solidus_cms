@@ -1,6 +1,6 @@
 - components_page.assets.each do |asset|
   .p-0.w-100{ class: "image_hero_#{asset.id}" }
-  = render partial: 'magma/cms/pages/templates/shared/hero_image_css',
+  = render partial: 'spree/cms/pages/templates/shared/hero_image_css',
       locals: { asset: asset,
           class_name: "image_hero_#{asset.id}",
           height: components_page.parent.height }

@@ -6,7 +6,7 @@
     - components_page.children.active.each do |component|
       .col-12.col-md.align-items-center.d-flex.flex-wrap.h-100
         - begin
-          = render partial: "magma/cms/pages/templates/#{component.frontend_template}",
+          = render partial: "spree/cms/pages/templates/#{component.frontend_template}",
               locals: { components_page: component }
         - rescue ActionView::Template::Error => e
           - Rails.logger.error(e)

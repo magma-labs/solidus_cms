@@ -2,7 +2,7 @@
 
 Spree::Core::Engine.routes.draw do
   get '*path', to: 'cms/pages#show',
-               constraints: ->(request) { Cms::Page.active.find_by(path: request.path_info) }
+               constraints: ->(request) { ::Cms::Page.active.find_by(path: request.path_info) }
   get '/cms/preview/:path', to: 'cms/pages#preview', as: :preview_page
 
   namespace :admin do
