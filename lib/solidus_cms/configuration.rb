@@ -2,7 +2,7 @@
 
 module SolidusCms
   class Configuration
-    attr_accessor :layout
+    attr_accessor :layout, :paperclip_reprocess
   end
 
   class << self
