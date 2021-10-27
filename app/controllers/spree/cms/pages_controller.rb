@@ -16,9 +16,13 @@ module Spree
 
       private
 
+      def custom_layout
+        @page.layout || SolidusCms.configuration.layout
+      end
+
       def render_with_layout(action)
-        if SolidusCms.configuration.layout
-          render action, layout: SolidusCms.configuration.layout
+        if custom_layout.present?
+          render action, layout: custom_layout
         else
           render action
         end
