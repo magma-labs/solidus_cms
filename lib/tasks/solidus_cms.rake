@@ -2,7 +2,10 @@ namespace :solidus_cms do
   desc "Sync component types for in your store"
   task sync_components: :environment do
     components = []
-    Dir[SolidusCms::Engine.root.join('app/presenters/cms/*.rb')].each do |file|
+    Dir[
+      SolidusCms::Engine.root.join('app/presenters/cms/*.rb'),
+      Rails.application.root.join('app/presenters/cms/*.rb')
+    ].each do |file|
       component_name = file.split('/').last.gsub('_presenter.rb', '')
       next if component_name.eql?('components_base')
 
