@@ -7,6 +7,8 @@
 
 = admin_breadcrumb link_to t('custom_pages.index'), admin_custom_pages_path
 
+= paginate @custom_pages, theme: "solidus_admin"
+
 %table.table.table-stripped
   %thead
     %th= t('custom_pages.components.name')
@@ -27,3 +29,5 @@
           = link_to_if page.disabled?, t('custom_pages.actions.delete'),
               admin_custom_page_path(page), method: :delete,
               data: { confirm: t('custom_pages.messages.are_you_sure') }
+
+= paginate @custom_pages, theme: "solidus_admin"
