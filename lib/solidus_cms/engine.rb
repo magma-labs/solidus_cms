@@ -23,6 +23,10 @@ module SolidusCms
       end
     end
 
+    initializer 'solidus_cms.precompile' do |app|
+      app.config.assets.precompile << Dir[SolidusCms::Engine.root.join('app/assets/images/cms/*.png')]
+    end
+
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
