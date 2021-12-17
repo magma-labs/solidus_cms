@@ -3,8 +3,9 @@
 require 'spec_helper'
 
 RSpec.describe Cms::ComponentsPage, type: :model do
+  let!(:page) { create(:page) }
+
   describe '#move_to' do
-    let!(:page) { Cms::Page.first }
     let!(:first_component) { page.components_pages.top_level.first }
     let!(:second_component) { page.components_pages.top_level.second }
     context 'when moving top level components' do
@@ -43,7 +44,6 @@ RSpec.describe Cms::ComponentsPage, type: :model do
   end
 
   describe '#update_related_positions' do
-    let!(:page) { Cms::Page.first }
     let!(:first_component) { page.components_pages.top_level.first }
     let!(:second_component) { page.components_pages.top_level.second }
     let!(:first_first_sub_component) { first_component.children.first }

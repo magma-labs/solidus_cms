@@ -1,6 +1,6 @@
 namespace :solidus_cms do
   desc "Sync component types for in your store"
-  task sync_components: :environment do
+  task :sync_components do
     components = []
     Dir[
       SolidusCms::Engine.root.join('app/presenters/cms/*.rb'),

@@ -23,6 +23,9 @@ Dir["#{__dir__}/support/**/*.rb"].sort.each { |f| require f }
 # Requires factories defined in lib/solidus_cms/testing_support/factories.rb
 SolidusDevSupport::TestingSupport::Factories.load_for(SolidusCms::Engine)
 
+# Load rake tasks
+Dir.glob(SolidusCms::Engine.root.join('lib/tasks/*.rake')).each { |r| load r}
+
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.use_transactional_fixtures = false
