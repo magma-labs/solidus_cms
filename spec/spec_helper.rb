@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rake'
+require 'pry'
 
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
