@@ -16,7 +16,7 @@ module Cms
 
     def title_clasess
       [
-          object.metadata.section_title_color
+        object.metadata.section_title_color
       ].join(' ')
     end
   end

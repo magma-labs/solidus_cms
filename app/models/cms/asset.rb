@@ -3,16 +3,16 @@
 module Cms
   class Asset < Spree::Asset
     has_attached_file :attachment,
-                      styles: ->(attachment) { attachment.instance.image_styles },
-                      default_url: 'cms/square_image.png',
-                      url: '/cms/assets/:id/:style/:basename.:extension',
-                      path: ':rails_root/public/cms/assets/:id/:style/:basename.:extension',
-                      convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
+      styles: ->(attachment) { attachment.instance.image_styles },
+      default_url: 'cms/square_image.png',
+      url: '/cms/assets/:id/:style/:basename.:extension',
+      path: ':rails_root/public/cms/assets/:id/:style/:basename.:extension',
+      convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
 
     validates_attachment :attachment,
-                         content_type: {
-                             content_type: %w[image/jpeg image/jpg image/png image/gif]
-                         }
+      content_type: {
+        content_type: %w[image/jpeg image/jpg image/png image/gif]
+      }
     validates_attachment(:attachment, presence: true) unless Rails.env.test?
 
     default_scope -> { order(:position) }

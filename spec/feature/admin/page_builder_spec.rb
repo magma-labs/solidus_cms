@@ -3,14 +3,14 @@
 require 'spec_helper'
 
 describe 'Pages Builder', type: :feature, js: true do
-  context 'as admin user' do
+  describe 'as admin user' do
     stub_authorization!
 
     before do
       visit spree.admin_path
     end
 
-    it 'should have a link to page builder' do
+    it 'has a link to page builder' do
       expect(page).to have_link('Pages Builder')
     end
 

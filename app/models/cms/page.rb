@@ -22,7 +22,7 @@ module Cms
 
     def layout
       components_pages.map(&:presenter)
-        .map { |p| p.layout if p.respond_to?(:layout) }.compact.first
+                      .map { |p| p.layout if p.respond_to?(:layout) }.compact.first
     end
   end
 end

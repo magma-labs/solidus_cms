@@ -20,7 +20,7 @@ module Cms
 
     def recommended_products(context)
       RecommendationsService.new(context.products_visited)
-          .perform(max_amount: object.metadata.number_of_results)
+                            .perform(max_amount: object.metadata.number_of_results)
     end
 
     def most_visited_products
@@ -33,8 +33,8 @@ module Cms
 
     def defaults
       {
-          number_of_results: 4,
-          group_of_products: 'new_arrivals'
+        number_of_results: 4,
+        group_of_products: 'new_arrivals'
       }
     end
   end

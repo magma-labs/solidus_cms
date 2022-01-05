@@ -61,7 +61,7 @@ module Cms
 
     def update_related_positions
       brothers.where('position > ?', position)
-          .update_all('position = position - 1') # rubocop:disable Rails/SkipsModelValidations
+              .update_all('position = position - 1') # rubocop:disable Rails/SkipsModelValidations
     end
 
     private

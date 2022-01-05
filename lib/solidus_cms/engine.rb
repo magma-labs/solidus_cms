@@ -19,7 +19,8 @@ module SolidusCms
           [:pages_builder],
           'file',
           url: '/admin/custom_pages',
-          condition: -> { can?(:admin, ::Cms::Page) })
+          condition: -> { can?(:admin, ::Cms::Page) }
+        )
       end
     end
 

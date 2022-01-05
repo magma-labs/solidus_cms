@@ -8,8 +8,8 @@ module Spree
       def index
         @search = model_class.accessible_by(current_ability).ransack(params[:q])
         @custom_pages = @search.result(distinct: true)
-          .page(params[:page])
-          .per(params[:per_page] || Spree::Config[:orders_per_page])
+                               .page(params[:page])
+                               .per(params[:per_page] || Spree::Config[:orders_per_page])
       end
 
       private

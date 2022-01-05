@@ -10,7 +10,8 @@ FactoryBot.define do
         page.components_pages.create!(component: component, name: "Test #{component.name}")
       end
       Cms::Component.content.each_with_index do |component, index|
-        page.components_pages.top_level[index % 2].children.create!(component: component, name: "Test #{component.name}", page: page)
+        page.components_pages.top_level[index % 2].children.create!(component: component,
+          name: "Test #{component.name}", page: page)
       end
     end
   end

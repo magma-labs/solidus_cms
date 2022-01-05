@@ -4,8 +4,8 @@ module Cms
   class BannerPresenter < ComponentsBasePresenter
     def image_styles
       {
-          square: '420x630>',
-          banner: '1920x720#'
+        square: '420x630>',
+        banner: '1920x720#'
       }
     end
 

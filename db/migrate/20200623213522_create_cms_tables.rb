@@ -1,5 +1,6 @@
 class CreateCmsTables < ActiveRecord::Migration[6.0]
   def change
+    # rubocop:disable Style/GuardClause
     unless table_exists?(:cms_pages)
       create_table :cms_pages do |t|
         t.string :name
@@ -25,12 +26,13 @@ class CreateCmsTables < ActiveRecord::Migration[6.0]
         t.references :page
         t.references :component
         t.references :parent
-
         t.string :name
         t.integer :position
-
         t.json :metadata
+
+        t.timestamps
       end
     end
+    # rubocop:enable Style/GuardClause
   end
 end

@@ -8,7 +8,7 @@ module Cms
 
     def content_classes
       [
-          object.metadata.content_color
+        object.metadata.content_color
       ].join(' ')
     end
   end

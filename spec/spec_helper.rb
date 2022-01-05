@@ -25,7 +25,7 @@ Dir["#{__dir__}/support/**/*.rb"].sort.each { |f| require f }
 SolidusDevSupport::TestingSupport::Factories.load_for(SolidusCms::Engine)
 
 # Load rake tasks
-Dir.glob(SolidusCms::Engine.root.join('lib/tasks/*.rake')).each { |r| load r}
+Dir.glob(SolidusCms::Engine.root.join('lib/tasks/*.rake')).each { |r| load r }
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!

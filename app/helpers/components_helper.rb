@@ -90,56 +90,56 @@ module ComponentsHelper
 
   def available_text_colors
     [
-        %w[White text-white],
-        %w[Dark text-dark],
-        %w[Primary text-primary],
-        %w[Secondary text-secondary]
+      %w[White text-white],
+      %w[Dark text-dark],
+      %w[Primary text-primary],
+      %w[Secondary text-secondary]
     ]
   end
 
   def available_button_colors
     [
-        %w[Link btn-link],
-        %w[Light btn-light],
-        %w[Dark btn-dark],
-        %w[Primary btn-primary],
-        %w[Secondary btn-secondary],
-        %w[Success btn-success],
-        %w[Info btn-info]
+      %w[Link btn-link],
+      %w[Light btn-light],
+      %w[Dark btn-dark],
+      %w[Primary btn-primary],
+      %w[Secondary btn-secondary],
+      %w[Success btn-success],
+      %w[Info btn-info]
     ]
   end
 
   def text_alignments
     [
-        %w[Justify text-justify],
-        %w[Center text-center],
-        %w[Left text-left],
-        %w[Right text-right]
+      %w[Justify text-justify],
+      %w[Center text-center],
+      %w[Left text-left],
+      %w[Right text-right]
     ]
   end
 
   def product_result_options
     [
-        ['New Arrivals', 'new_arrivals'],
-        %w[Recommendations recommendations],
-        ['Most Visited', 'most_visited'],
-        ['On sale', 'on_sale']
+      ['New Arrivals', 'new_arrivals'],
+      %w[Recommendations recommendations],
+      ['Most Visited', 'most_visited'],
+      ['On sale', 'on_sale']
     ]
   end
 
   def vertical_alignment_options
     [
-        %w[Start align-items-start],
-        %w[End align-items-end],
-        %w[Center align-items-center]
+      %w[Start align-items-start],
+      %w[End align-items-end],
+      %w[Center align-items-center]
     ]
   end
 
   def horizontal_alignment_options
     [
-        %w[Left justify-content-start],
-        %w[Right justify-content-end],
-        %w[Center justify-content-center]
+      %w[Left justify-content-start],
+      %w[Right justify-content-end],
+      %w[Center justify-content-center]
     ]
   end
 end

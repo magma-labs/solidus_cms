@@ -53,7 +53,7 @@ module Spree
 
       def find_resource
         @component = find_page.components_pages
-            .find_by(id: params[:component_id].presence || params[:id])
+                              .find_by(id: params[:component_id].presence || params[:id])
       end
 
       def find_sub_component

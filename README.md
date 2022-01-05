@@ -21,7 +21,8 @@ bin/rails generate solidus_cms:install
 
 ## Usage
 
-<!-- Explain how to use your extension once it's been installed. -->
+After install you have a new `Pages Builder` menu item in admin, from there you
+can build the page that you desire.
 
 ## Development
 

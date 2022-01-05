@@ -8,9 +8,9 @@ module Cms
 
     def image_styles
       {
-          mobile: '700x400##',
-          tablet: '1200x300#',
-          large: '1920x480#'
+        mobile: '700x400##',
+        tablet: '1200x300#',
+        large: '1920x480#'
       }
     end
 
@@ -20,8 +20,8 @@ module Cms
 
     def defaults
       {
-          height: 400,
-          full_width: true
+        height: 400,
+        full_width: true
       }
     end
   end

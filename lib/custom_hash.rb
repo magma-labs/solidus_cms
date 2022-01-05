@@ -12,7 +12,6 @@ class CustomHash
     json.key?(method) || super
   end
 
-  # rubocop:disable Lint/MissingSuper
   def method_missing(method_name)
     if json.key? method_name
       json[method_name]
@@ -20,5 +19,4 @@ class CustomHash
       ''
     end
   end
-  # rubocop:enable Lint/MissingSuper
 end

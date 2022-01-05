@@ -50,14 +50,14 @@ module Cms
 
     def title_classes
       [
-          object.metadata.title_color
+        object.metadata.title_color
       ].join(' ')
     end
 
     def content_clasess
       [
-          object.metadata.content_color,
-          object.metadata.content_alignment
+        object.metadata.content_color,
+        object.metadata.content_alignment
       ].join(' ')
     end
   end

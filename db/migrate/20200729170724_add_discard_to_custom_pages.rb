@@ -4,7 +4,9 @@ class AddDiscardToCustomPages < ActiveRecord::Migration[6.0]
   disable_ddl_transaction!
 
   def change
-    extra_args  = ActiveRecord::Base.connection.instance_values["config"][:adapter] == "postgresql" ? { algorithm: :concurrently} : {}
+    # rubocop:disable Layout/LineLength
+    extra_args = ActiveRecord::Base.connection.instance_values["config"][:adapter] == "postgresql" ? { algorithm: :concurrently } : {}
+    # rubocop:enable Layout/LineLength
 
     add_column :cms_pages, :discarded_at, :datetime
     add_column :cms_pages, :discarded_by, :bigint

@@ -15,7 +15,7 @@ module Cms
 
     def defaults
       {
-          number_of_results: 4
+        number_of_results: 4
       }
     end
   end
