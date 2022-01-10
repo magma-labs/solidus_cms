@@ -29,13 +29,13 @@ Dir.glob(SolidusCms::Engine.root.join('lib/tasks/*.rake')).each { |r| load r }
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
-  config.use_transactional_fixtures = false
+  config.use_transactional_fixtures = true
 
   if Spree.solidus_gem_version < Gem::Version.new('2.11')
     config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :system
   end
 
-  config.before(:suite) do
+  config.before(:all, type: :component) do
     Rake::Task['solidus_cms:sync_components'].invoke
   end
 end

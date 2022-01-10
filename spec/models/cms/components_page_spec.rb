@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Cms::ComponentsPage, type: :model do
+RSpec.describe Cms::ComponentsPage, type: :component do
   let!(:page) { create(:page) }
 
   describe '#move_to' do
@@ -37,7 +37,7 @@ RSpec.describe Cms::ComponentsPage, type: :model do
       it 'adds it to the end' do
         component = page.components_pages.create(name: 'Testing',
           component: Cms::Component.containers.first)
-        expect(component.position).to be(3)
+        expect(component.position).to eq(3)
       end
     end
 
