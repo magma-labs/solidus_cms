@@ -35,7 +35,8 @@ RSpec.configure do |config|
     config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :system
   end
 
-  config.before(:all, type: :component) do
+  config.before(:each, cms_component: true) do
+    Rake::Task['solidus_cms:sync_components'].reenable
     Rake::Task['solidus_cms:sync_components'].invoke
   end
 end
