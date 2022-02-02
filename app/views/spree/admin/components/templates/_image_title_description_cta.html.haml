@@ -4,7 +4,7 @@
   = assets_form.file_field :attachment
 = f.text_field :title, required: true
 = render 'shared/color_field', { f: f, field_name: :title_color }
-= f.text_area :content, requried: true
+= f.text_area :content, required: true
 = render 'shared/color_field', { f: f, field_name: :content_color }
 = f.select :content_alignment, text_alignments, required: true
 = f.text_field :cta

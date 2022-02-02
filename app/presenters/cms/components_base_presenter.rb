@@ -54,7 +54,7 @@ module Cms
       ].join(' ')
     end
 
-    def content_clasess
+    def content_classes
       [
         object.metadata.content_color,
         object.metadata.content_alignment
