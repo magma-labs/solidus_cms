@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Cms::ComponentsPage, type: :component do
+RSpec.describe Cms::ComponentsPage, type: :model, cms_component: true do
   let!(:page) { create(:page) }
 
   describe '#move_to' do
