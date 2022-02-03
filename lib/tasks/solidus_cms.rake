@@ -2,9 +2,7 @@
 
 namespace :solidus_cms do
   desc "Sync component types for in your store"
-  # rubocop:disable Rails/RakeEnvironment
-  task :sync_components do
-    # rubocop:enable Rails/RakeEnvironment
+  task sync_components: :environment do
     components = []
     Dir[
       SolidusCms::Engine.root.join('app/presenters/cms/*.rb'),

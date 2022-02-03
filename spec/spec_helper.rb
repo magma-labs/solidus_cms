@@ -36,6 +36,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, cms_component: true) do
+    Rake::Task.define_task(:environment)
     Rake::Task['solidus_cms:sync_components'].reenable
     Rake::Task['solidus_cms:sync_components'].invoke
   end
