@@ -31,7 +31,7 @@ module Cms
       return unless SolidusCms.configuration.paperclip_reprocess
       return unless previous_changes[:attachment_file_size]
 
-      PaperclipReprocessJob.perform_later(self, :attachment)
+      ::PaperclipReprocessJob.perform_later(self, :attachment)
     end
   end
 end
