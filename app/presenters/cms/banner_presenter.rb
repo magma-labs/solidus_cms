@@ -10,11 +10,11 @@ module Cms
     end
 
     def background_image
-      object.assets.first.attachment
+      object.assets&.first&.attachment
     end
 
     def cta_image
-      object.assets.second.attachment
+      object.assets&.second&.attachment
     end
   end
 end

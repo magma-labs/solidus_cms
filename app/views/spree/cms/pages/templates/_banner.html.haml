@@ -5,15 +5,18 @@
         = components_page.metadata.title
       %p{ class: components_page.presenter.content_classes }
         = components_page.metadata.content
-      = link_to components_page.cta, components_page.cta_url,
-          class: "btn #{components_page.metadata.button_color}"
-    .d-none.d-md-block.col-lg-4.col-md-5.position-relative
-      = image_tag components_page.presenter.cta_image.url(:square), class: 'content__cta-image'
+      - if components_page.metadata.cta.present? && components_page.metadata.cta_url.present?
+        = link_to components_page.metadata.cta, components_page.metadata.cta_url,
+            class: "btn #{components_page.metadata.button_color}"
+    - if components_page.presenter.cta_image
+      .d-none.d-md-block.col-lg-4.col-md-5.position-relative
+        = image_tag components_page.presenter.cta_image.url(:square), class: 'content__cta-image'
 
 - asset = components_page.presenter.background_image
-:sass
-  #row-#{components_page.parent.id}
-    background-image: url('#{image_path(asset.url(:banner))}');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+- if asset
+  :sass
+    #row-#{components_page.parent.id}
+      background-image: url('#{image_path(asset.url(:banner))}');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
