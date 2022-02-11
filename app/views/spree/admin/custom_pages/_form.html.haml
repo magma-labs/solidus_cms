@@ -1,0 +1,13 @@
+.row
+  .col
+    = f.text_field :name, placeholder: t('custom_pages.new'), required: true,
+        help: t('custom_pages.pages.help.name')
+.row
+  .col-6
+    = f.text_field :path, placeholder: '/', required: true, help: t('custom_pages.pages.help.path')
+  .col-6
+    = f.fields_for :metadata, f.object.metadata do |metadata_f|
+      = metadata_f.text_field :background_color,
+          help: t('custom_pages.background_color_help'),
+          class: ' a'
+= f.submit

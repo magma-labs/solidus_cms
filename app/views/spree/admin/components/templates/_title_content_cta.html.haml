@@ -1,0 +1,7 @@
+= f.text_field :title, required: true
+= render 'shared/color_field', { f: f, field_name: :title_color }
+= f.text_area :content, required: true
+= render 'shared/color_field', { f: f, field_name: :content_color }
+= f.text_field :cta_title
+= f.text_field :cta_url
+= f.select :content_alignment, text_alignments, required: true

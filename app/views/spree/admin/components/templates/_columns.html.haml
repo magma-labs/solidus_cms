@@ -1,0 +1,6 @@
+= f.text_field :section_title, help: t('custom_pages.messages.leave_empty')
+= render 'shared/color_field', { f: f, field_name: :section_title_color }
+= f.text_field :background_color, label: t('custom_pages.components.background_color'), help: '#ffffff'
+= f.number_field :height, label: t('custom_pages.components.height.label'),
+    help: t('custom_pages.components.height.help')
+= f.check_box :full_width, label: t('custom_pages.components.full_width')

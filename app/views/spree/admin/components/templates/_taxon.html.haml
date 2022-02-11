@@ -1,0 +1,5 @@
+= f.text_field :title, help: t('custom_pages.messages.leave_empty')
+= render 'shared/color_field', { f: f, field_name: :title_color }
+= f.text_field :taxon_permalink, required: true, placeholder: 'categorias/primer-categoria'
+= f.number_field :number_of_results, required: true, help: 'How many results to render'
+= f.select :tile_type, [%w[Vertical vertical], %w[Horizontal horizontal]]

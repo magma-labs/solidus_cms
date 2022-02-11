@@ -1,0 +1,14 @@
+:sass
+  .#{class_name}
+    background-image: url('#{image_path(asset.attachment.url(:mobile))}');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: #{height}px;
+    @media only screen and (min-width: 480px)
+      background-image: url('#{image_path(asset.attachment.url(:tablet))}');
+    @media only screen and (min-width: 740px)
+      background-image: url('#{image_path(asset.attachment.url(:desktop))}');
+    @media only screen and (min-width: 1200px)
+      background-image: url('#{image_path(asset.attachment.url(:large))}');
+      background-size: 100%

@@ -1,0 +1,47 @@
+- content_for :page_actions do
+  %li= link_to t('custom_pages.actions.edit'),
+      edit_admin_custom_page_component_path(@page, @component),
+      class: 'btn btn-primary'
+
+  %li= link_to t('custom_pages.actions.back'),
+      admin_custom_page_path(@page),
+      class: 'btn btn-primary'
+
+= admin_breadcrumb link_to t('custom_pages.index'), admin_custom_pages_path
+= admin_breadcrumb link_to @page.name, admin_custom_page_path(@page)
+= admin_breadcrumb link_to @component.name, admin_custom_page_component_path(@page, @component)
+= admin_breadcrumb t('custom_pages.actions.customize')
+
+%hr
+%h4= t('custom_pages.components.title')
+%table.table.table-bordered
+  %thead
+    %tr
+      %th= t('custom_pages.components.name')
+      %th= t('custom_pages.components.component_type')
+      %th= t('custom_pages.components.status')
+      %th= t('custom_pages.actions.title')
+  %tbody
+    - if @component.children.empty?
+      %tr
+        %td{ colspan: 3 }
+          = t('custom_pages.components.empty')
+    - @component.children.each do |component|
+      %tr
+        %td= component.name
+        %td= component.component_name.titleize
+        %td= t("custom_pages.components.active.#{component.active}")
+        %td
+          = link_to t('custom_pages.actions.customize'),
+              edit_admin_custom_page_component_component_path(@page, @component, component)
+          |
+          = link_to t('custom_pages.actions.delete'),
+              admin_custom_page_component_component_path(@page, @component, component),
+              method: :delete, data: { confirm: t('custom_pages.messages.are_you_sure') }
+          |
+          = link_to_if component.position > 1, t('custom_pages.actions.move_up'),
+              move_to_admin_custom_page_component_component_path(@page, @component,
+                  component, position: component.position - 1),
+              method: :put
+= link_to t('custom_pages.components.add_new'),
+    new_admin_custom_page_component_component_path(@page, @component)
