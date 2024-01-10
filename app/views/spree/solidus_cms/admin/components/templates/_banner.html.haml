@@ -1,0 +1,35 @@
+.row.py-4
+  .col-12
+    .row
+      .col-6
+        = f.text_field :title, required: true
+      .col-6
+        = render 'shared/color_field', { f: f, field_name: :title_color }
+  .col-12.mb-3
+    = f.label :content
+    = f.hidden_field :content, required: true
+    %trix-editor{ input: 'components_page_metadata_content' }
+  .col-12
+    .row
+      .col-6
+        = render 'shared/color_field', { f: f, field_name: :content_color }
+      .col-6
+        = f.select :content_alignment, text_alignments, required: true
+  .col-sm-3
+    = f.text_field :cta, required: true, label: 'CTA'
+  .col-sm-3
+    = f.select :button_color, available_button_colors,
+      required: true
+  .col-12
+    = f.text_field :cta_url, required: true, label: 'URL'
+  - component_form.object.find_asset_for_position(1)
+  - component_form.object.find_asset_for_position(2)
+  = component_form.fields_for :assets do |assets_form|
+    .col-12
+      - if assets_form.object.persisted?
+        - attachment = assets_form.object.attachment
+        = image_tag attachment.url(assets_form.object.position == 1 ? :banner : :square)
+      = assets_form.file_field :attachment,
+          label: t("custom_pages.components.banner.image_#{assets_form.object.position}"),
+          required: !Rails.env.test? && !assets_form.object.persisted?
+      = assets_form.hidden_field :position

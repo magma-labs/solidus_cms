@@ -1,0 +1,29 @@
+-# frozen_string_literal: true
+
+- content_for :page_actions do
+  %li= link_to t('custom_pages.new'),
+      new_admin_custom_page_path,
+      class: 'btn btn-primary'
+
+= admin_breadcrumb link_to t('custom_pages.index'), admin_custom_pages_path
+
+%table.table.table-stripped
+  %thead
+    %th= t('custom_pages.components.name')
+    %th= t('custom_pages.path')
+    %th= t('custom_pages.is_it_live')
+    %th= t('custom_pages.actions.title')
+  %tboddy
+    - @custom_pages.each do |page|
+      %tr
+        %td= link_to page.name, admin_custom_page_path(page)
+        %td= page.path
+        %td
+          = bootstrap_form_for page, as: :page, url: admin_custom_page_path(page),
+              method: :put do |form|
+            = form.check_box :active, id: page.id, custom: :switch, onchange: 'this.form.submit()',
+                label: page.active ? t('custom_pages.status.live') : t('custom_pages.status.draft')
+        %td
+          = link_to_if page.disabled?, t('custom_pages.actions.delete'),
+              admin_custom_page_path(page), method: :delete,
+              data: { confirm: t('custom_pages.messages.are_you_sure') }

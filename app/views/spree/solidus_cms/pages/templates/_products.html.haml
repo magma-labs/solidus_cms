@@ -1,0 +1,10 @@
+- if components_page.metadata.title.presence
+  %h2{ class: components_page.presenter.title_classes }
+    = components_page.title
+- if components_page.metadata.cta.present?
+  .pl-3
+    = link_to components_page.metadata.cta, components_page.metadata.cta_url
+.row.w-100
+  = render partial: "shared/#{components_page.presenter.product_template}",
+      collection: components_page.presenter.products(self),
+      as: :product

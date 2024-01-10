@@ -1,0 +1,18 @@
+.row.mb-3
+  .col-12
+    = f.text_field :section_title, help: t('custom_pages.messages.leave_empty')
+  .col-6
+    = render 'shared/alignment_field', { f: f, field_name: :section_title_alignment }
+  .col-6
+    = render 'shared/color_field', { f: f, field_name: :section_title_color }
+.row.mb-3
+  .col-6
+    = f.text_field :background_color,
+      label: t('custom_pages.components.background_color'),
+      help: '#ffffff'
+  .col-6
+    = f.number_field :height, label: t('custom_pages.components.height.label'),
+      help: t('custom_pages.components.height.help')
+.row
+  .col-12
+    = f.check_box :full_width, label: t('custom_pages.components.full_width')

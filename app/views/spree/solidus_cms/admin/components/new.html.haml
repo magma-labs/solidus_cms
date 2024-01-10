@@ -1,0 +1,30 @@
+- content_for :page_actions do
+  - if defined?(@component)
+    %li= link_to t('custom_pages.actions.back'),
+        admin_custom_page_component_path(@page, @component),
+        class: 'btn btn-primary'
+  - else
+    %li= link_to t('custom_pages.actions.back'),
+        admin_custom_page_path(@page),
+        class: 'btn btn-primary'
+
+
+= admin_breadcrumb link_to t('custom_pages.index'), admin_custom_pages_path
+= admin_breadcrumb link_to @page.name, admin_custom_pages_path(@page)
+- if defined?(@component)
+  = admin_breadcrumb link_to @component.name, admin_custom_page_component_path(@page, @component)
+
+- if defined?(@component)
+  %h4= @component.name
+  = bootstrap_form_for :components_page, url: admin_custom_page_component_components_path(@page, @component) do |f|
+    = f.text_field :name, required: true
+    = render partial: 'spree/solidus_cms/admin/components/component_options', locals: { components: SolidusCms::Component.content, f: f }
+    %h5
+    = f.submit
+- else
+  %h2= t('custom_pages.new_section')
+  = bootstrap_form_for :components_page, url: admin_custom_page_components_path(@page) do |f|
+    = f.text_field :name, required: true
+    = render partial: 'spree/solidus_cms/admin/components/component_options', locals: { components: SolidusCms::Component.containers, f: f }
+    %hr
+    = f.submit

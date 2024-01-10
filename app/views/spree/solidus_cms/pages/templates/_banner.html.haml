@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-12.col-lg-8.col-md-7.pb-5.pt-5
+      %h2{ class: components_page.presenter.title_classes }
+        = components_page.metadata.title
+      %div{ class: components_page.presenter.content_classes }
+        != components_page.metadata.content
+      = link_to components_page.metadata.cta, components_page.metadata.cta_url,
+          class: "btn #{components_page.metadata.button_color}"
+    .d-none.d-md-block.col-lg-4.col-md-5.position-relative
+      = image_tag components_page.presenter.cta_image.url(:square), class: 'content__cta-image'
+
+- asset = components_page.presenter.background_image
+:sass
+  #row-#{components_page.parent.id}
+    background-image: url('#{image_path(asset.url(:banner))}');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;

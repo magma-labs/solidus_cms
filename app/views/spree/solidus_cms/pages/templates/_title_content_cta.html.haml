@@ -1,0 +1,11 @@
+.row.p-1.p-md-2.p-lg-3.h-100
+  .col-12.d-flex{ class: components_page.presenter.component_classes }
+    %div
+      %h2{ class: components_page.presenter.title_classes }= components_page.title
+      %div{ class: components_page.presenter.content_classes }
+        != components_page.content
+      - if components_page.metadata.cta_title.present?
+        %div{ class: components_page.metadata.button_alignment }
+          = link_to components_page.cta_title,
+              components_page.cta_url,
+              class: "btn #{components_page.metadata.button_color}"

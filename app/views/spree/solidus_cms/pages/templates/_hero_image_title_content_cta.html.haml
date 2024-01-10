@@ -1,0 +1,15 @@
+- components_page.assets.each do |asset|
+  .p-0.w-100{ class: "image_hero_#{asset.id}" }
+  = render partial: 'spree/solidus_cms/pages/templates/shared/hero_image_css',
+      locals: { asset: asset,
+          class_name: "image_hero_#{asset.id}",
+          height: components_page.parent.height }
+  .carousel-caption.d-flex.h-100{ class: components_page.presenter.content_alignment_classes }
+    %div
+      %h2{ class: components_page.presenter.title_classes }= components_page.title
+      %div{ class: components_page.presenter.content_classes }
+        != components_page.content
+      - if components_page.metadata.cta.present?
+        %div{ class: components_page.metadata.button_alignment }
+          = link_to components_page.cta, components_page.cta_url,
+              class: "btn #{components_page.metadata.button_color}"

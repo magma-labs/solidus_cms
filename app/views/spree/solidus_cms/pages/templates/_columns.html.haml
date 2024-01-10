@@ -1,0 +1,25 @@
+.py-5{ class: components_page.full_width? ? 'container-fluid' : 'container' }
+  - if components_page.metadata.section_title.present?
+    %h2{ class: components_page.presenter.title_classes }
+      = components_page.section_title
+  .row.align-content-center.d-flex{ id: "row-#{components_page.id}" }
+    - components_page.children.active.each do |component|
+      .col-12.col-md.align-items-center.d-flex.flex-wrap
+        - begin
+          = render partial: "spree/solidus_cms/pages/templates/#{component.frontend_template}",
+              locals: { components_page: component }
+        - rescue ActionView::Template::Error => e
+          - Rails.logger.error(e)
+          - if can?(:manage, SolidusCms::ComponentsPage, spree_current_user)
+            .container
+              %h4= t('custom_pages.messages.something_went_wrong')
+              = link_to t('custom_pages.actions.edit_component'),
+                  main_app.edit_admin_custom_page_component_component_path(components_page.page,
+                                                                          components_page, component)
+- if components_page.metadata.background_color.present?
+  :sass
+    #section-#{components_page.id}
+      background-color: #{components_page.metadata.background_color};
+:sass
+  #row-#{components_page.id}
+    height: #{components_page.presenter.height};

@@ -1,0 +1,37 @@
+.row.mb-3
+  .col-12
+    = f.text_field :title, required: true
+  .col-6
+    = render 'shared/alignment_field', { f: f, field_name: :title_alignment }
+  .col-6
+    = render 'shared/color_field', { f: f, field_name: :title_color }
+  .col-12
+    = f.hidden_field :content, required: true
+    %trix-editor{ input: 'components_page_metadata_content' }
+  .col-6
+    = render 'shared/alignment_field', { f: f, field_name: :content_alignment }
+  .col-6
+    = render 'shared/color_field', { f: f, field_name: :content_color }
+.row
+  .col-sm-6
+    %fieldset
+      %legend= t('.cta.legend')
+      = f.text_field :cta_title,
+          label: t('.cta.title')
+      = f.text_field :cta_url,
+          label: t('.cta.url')
+      = f.select :button_color,
+          available_button_colors,
+          label: t('.cta.button')
+      = render 'shared/alignment_field', { f: f, field_name: :button_alignment }
+  .col-sm-6
+    %fieldset
+      %legend= t('.position.legend')
+      = f.select :content_vertical_alignment,
+          vertical_alignment_options,
+          required: true,
+          label: t('.position.vertical')
+      = f.select :content_horizontal_alignment,
+          horizontal_alignment_options,
+          required: true,
+          label: t('.position.horizontal')

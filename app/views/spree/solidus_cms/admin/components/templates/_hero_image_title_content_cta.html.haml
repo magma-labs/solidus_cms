@@ -1,0 +1,35 @@
+- component_form.object.assets.first_or_initialize
+= component_form.fields_for :assets do |assets_form|
+  .col-12
+    = image_tag assets_form.object.attachment.url(:desktop) if assets_form.object.persisted?
+    = assets_form.file_field :attachment
+.col-12
+  .row
+    .col-6
+      = f.text_field :title, required: true
+    .col-6
+      = render 'shared/color_field', { f: f, field_name: :title_color }
+.col-12
+  = f.label :content
+  = f.hidden_field :content, required: true
+  %trix-editor{ input: 'components_page_metadata_content' }
+.col-12
+  .row
+    .col-6
+      = render 'shared/color_field', { f: f, field_name: :content_color }
+    .col-6
+      = f.select :content_alignment, text_alignments, required: true
+    .col-6
+      = f.select :content_vertical_alignment, vertical_alignment_options, required: true
+    .col-6
+      = f.select :content_horizontal_alignment, horizontal_alignment_options, required: true
+.col-12
+  .row
+    .col-6
+      = f.text_field :cta
+    .col-6
+      = f.text_field :cta_url
+    .col-6
+      = f.select :button_color, available_button_colors
+    .col-6
+      = render 'shared/alignment_field', { f: f, field_name: :button_alignment }

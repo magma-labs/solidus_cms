@@ -1,0 +1,29 @@
+- component_form.object.assets.first_or_initialize
+%h5 Image
+= component_form.fields_for :assets do |assets_form|
+  = image_tag assets_form.object.attachment.url(:square) if assets_form.object.persisted?
+  = assets_form.file_field :attachment
+%h5 Title
+.row.my-3
+  .col-12
+    = f.text_field :title, required: true, help: 'Always centered'
+  .col-12
+    = render 'shared/color_field', { f: f, field_name: :title_color }
+%h5 Content
+.row.mb-3
+  .col-12
+    = f.text_area :content, requried: true
+  .col-6
+    = render 'shared/color_field', { f: f, field_name: :content_color }
+  .col-6
+    = render 'shared/alignment_field', { f: f, field_name: :content_alignment }
+%h5 Call To Action
+.row.mb-3
+  .col-6
+    = f.text_field :cta
+  .col-6
+    = f.text_field :cta_url
+  .col-6
+    = f.select :button_color, available_button_colors
+  .col-6
+    = render 'shared/alignment_field', { f: f, field_name: :button_alignment }

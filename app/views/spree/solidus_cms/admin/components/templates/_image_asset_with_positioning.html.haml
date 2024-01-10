@@ -1,0 +1,7 @@
+= f.select :vertical_alignment, vertical_alignment_options, required: true
+= f.select :horizontal_alignment, horizontal_alignment_options, required: true
+
+- component_form.object.assets.first_or_initialize
+= component_form.fields_for :assets do |assets_form|
+  = image_tag assets_form.object.attachment.url(:small) if assets_form.object.persisted?
+  = assets_form.file_field :attachment

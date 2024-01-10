@@ -1,0 +1,7 @@
+= f.text_field :title, help: t('custom_pages.messages.leave_empty')
+= render 'shared/color_field', { f: f, field_name: :title_color }
+= f.select :group_of_products, product_result_options, required: true
+= f.number_field :number_of_results, required: true
+= f.select :tile_type, [%w[Vertical vertical], %w[Horizontal horizontal]]
+= f.text_field :cta
+= f.text_field :cta_url
