@@ -2,7 +2,7 @@
 
 module SolidusCms
   class Configuration
-    attr_accessor :authorize_user
+    attr_accessor :layout
   end
 
   class << self

@@ -2,6 +2,8 @@
 
 module Spree::SolidusCms
   class PagesController < Spree::StoreController
+    layout SolidusCms.config.layout if SolidusCms.config.layout.present?
+
     def show
       @page = SolidusCms::Page.active.find_by(path: request.path_info)
     end

@@ -10,4 +10,7 @@ SolidusCms.configure do |config|
       condition: -> { can?(:admin, SolidusCms::Page) }
     )
   end
+
+  # Changes the default layout for custom pages
+  # config.layout = 'custom_layout'
 end
