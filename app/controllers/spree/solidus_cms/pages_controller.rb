@@ -5,7 +5,7 @@ module Spree::SolidusCms
     layout SolidusCms.config.layout if SolidusCms.config.layout.present?
 
     def show
-      @page = model_class.active.find_by(path: request.path_info)
+      @page = model_class.active.find_by!(path: request.path_info)
     end
 
     def preview
