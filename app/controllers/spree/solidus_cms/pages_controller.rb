@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Spree::SolidusCms
-  class PagesController < Spree::StoreController
+  class PagesController < SolidusCms.config.frontend_controller_parent.constantize
     layout SolidusCms.config.layout if SolidusCms.config.layout.present?
 
     def show

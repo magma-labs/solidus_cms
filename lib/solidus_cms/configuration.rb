@@ -3,6 +3,8 @@
 module SolidusCms
   class Configuration
     attr_accessor :layout
+    attr_accessor :frontend_controller_parent
+    attr_accessor :backend_controller_parent
   end
 
   class << self

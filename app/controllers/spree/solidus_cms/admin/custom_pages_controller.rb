@@ -2,7 +2,7 @@
 
 module Spree::SolidusCms
   module Admin
-    class CustomPagesController < ::Spree::Admin::ResourceController
+    class CustomPagesController < SolidusCms.config.backend_controller_parent.constantize
       destroy.before :track_discard_author
 
       private

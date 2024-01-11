@@ -13,4 +13,9 @@ SolidusCms.configure do |config|
 
   # Changes the default layout for custom pages
   # config.layout = 'custom_layout'
+
+  # You can override the parent class used by SolidusCms controllers here.
+  # This is useful to leverage auth mechanisms, hooks and other behaviors from the main app.
+  config.frontend_controller_parent = 'Spree::StoreController'
+  config.backend_controller_parent = 'Spree::Admin::ResourceController'
 end

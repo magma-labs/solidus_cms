@@ -2,7 +2,7 @@
 
 module Spree::SolidusCms
   module Admin
-    class ComponentsController < Spree::Admin::ResourceController
+    class ComponentsController < SolidusCms.config.backend_controller_parent.constantize
       before_action :find_page
       # rubocop:disable Rails/LexicallyScopedActionFilter
       before_action :find_sub_component, only: [:edit]
