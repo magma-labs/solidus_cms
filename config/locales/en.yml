@@ -1,5 +1,83 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
+---
 en:
-  hello: Hello world
+  spree:
+    admin:
+      tab:
+        pages_builder: Pages Builder
+        something_went_wrong: Something went wrong rendering this component, must be missing some settings
+  activerecord:
+    errors:
+      models:
+        solidus_cms/asset:
+          attributes:
+            attachment:
+              blank: Image can not be blank
+  solidus_cms:
+    admin:
+      components:
+        templates:
+          title_content_cta:
+            cta:
+              button: Button Style
+              legend: CTA
+              title: Title
+              url: URL
+            position:
+              horizontal: Horizontal
+              legend: Position
+              vertical: Vertical
+            text:
+              alignment: Alignment
+              color: Color
+              legend: Text
+  custom_pages:
+    actions:
+      back: Back
+      customize: Customize
+      delete: Destroy
+      edit: Edit
+      edit_component: Edit this component to review settings
+      move_up: Move Up
+      title: Actions
+    background_color_help: 'Format: #ffffff, leave empty for transparent page'
+    component_type: Component Type
+    components:
+      active:
+        'false': false
+        'true': true
+      add_new: Add New
+      add_new_section: New Section
+      background_color: Background color
+      banner:
+        image_1: Background Image
+        image_2: CTA Image
+      component_type: Component Type
+      empty: No components yet
+      full_width: Full Width
+      height:
+        help: Section height, empty for auto
+        label: Height
+      name: Name
+      status: Active
+      title: Components
+    index: Pages Builder
+    is_it_live: Live?
+    launch: Publish live
+    messages:
+      are_you_sure: Are you sure?
+      leave_empty: Leave empty for no title
+      something_went_wrong: Something went wrong
+    new: New Page
+    new_section: New Section
+    pages:
+      help:
+        name: Internal Name
+        path: 'How url will look like, it is recommended to split words with dashes: /name-of-page'
+      slug_error: Slug is in the wrong format, make sure to be single word split with dashes, no spaces, lowercase, and starts with /
+    path: Path
+    preview: Preview
+    sections: Section
+    status:
+      draft: Draft
+      live: Live
+    take_it_down: Unpublish

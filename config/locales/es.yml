@@ -1,0 +1,83 @@
+---
+es:
+  spree:
+    admin:
+      tab:
+        pages_builder: Editor de páginas
+        something_went_wrong: Algo salio mal intentando desplegar este componente, puede ser debido a falta de configuraciones
+  activerecord:
+    errors:
+      models:
+        solidus_cms/asset:
+          attributes:
+            attachment:
+              blank: Imagen no puede ser vacía
+  solidus_cms:
+    admin:
+      components:
+        templates:
+          title_content_cta:
+            cta:
+              button: Estilo de botón
+              legend: Acción
+              title: Titulo
+              url: Dirección
+            position:
+              horizontal: Horizontal
+              legend: Posición
+              vertical: Vertical
+            text:
+              alignment: Alineación
+              color: Color
+              legend: Texto
+  custom_pages:
+    actions:
+      back: Regresar
+      customize: Personalizar
+      delete: Borrar
+      edit: Editar
+      edit_component: Editar éste componente para verificar configuraciones
+      move_up: Mover arriba
+      title: Acciones
+    background_color_help: 'Formato: #ffffff, dejar vacio para página transparente'
+    component_type: Tipo de Componente
+    components:
+      active:
+        'false': false
+        'true': Si
+      add_new: Agregar nuevo
+      add_new_section: Nueva sección
+      background_color: Color de fondo
+      banner:
+        image_1: Imágen de fondo
+        image_2: Imagen para CTA
+      component_type: Tipo de Componente
+      empty: No hay información
+      full_width: Ancho completo
+      height:
+        help: Altura de la sección, dejar vacio para auto
+        label: Altura
+      name: Nombre
+      status: Activo
+      title: Componentes
+    index: Editor de páginas
+    is_it_live: Estado
+    launch: Publicar
+    messages:
+      are_you_sure: Confirmar la acción
+      leave_empty: Dejar en blanco para no mostrar título
+      something_went_wrong: Algo salió mal
+    new: Nueva Página
+    new_section: Nueva Sección
+    pages:
+      help:
+        name: Nombre Interno
+        path: 'Valor que se mostrará como parte de la dirección URL, se recomienda de formato: /nombre-de-pagina'
+      slug_error: Slug especificado no cumple con el formato adecuado, debe ser sin espacios, minúsculas, palabras separadas con guiones e iniciar con /
+    path: Path
+    preview: Previsualizar
+    sections: Sección
+    status:
+      draft: Plantilla
+      live: Publicada
+    take_it_down: Remover publicación
